@@ -1,0 +1,545 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1B617B22-EF04-47FD-AFD8-2876C2379A75}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MeetingDemo</RootNamespace>
+    <AssemblyName>MeetingDemo</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="fsp_sdk_clr_wrapper">
+      <HintPath>..\..\..\..\..\git-code\fsp-open-sdk\new\fsp_open_sdk\build\windows\Debug\fsp_sdk_clr_wrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SdkManager.cs" />
+    <Compile Include="SettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingForm.Designer.cs">
+      <DependentUpon>SettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VideoPanel.cs" />
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SettingForm.resx">
+      <DependentUpon>SettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\checkbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\checkbox_disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\checkbox_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\checkbox_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\checkbox_sel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\checkbox_sel_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\checkbox_sel_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\more_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\more_menu_arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\radio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\radio_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\radio_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\radio_sel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\toolbar_audio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\toolbar_audio_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\toolbar_audio_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\toolbar_audio_open_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\toolbar_audio_open_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\toolbar_audio_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\toolbar_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\toolbar_cam.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\toolbar_cam_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\toolbar_cam_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\toolbar_cam_open_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\toolbar_cam_open_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\toolbar_cam_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\toolbar_menu_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\toolbar_mic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\toolbar_mic_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\toolbar_mic_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\toolbar_mic_open_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\toolbar_mic_open_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\toolbar_mic_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\toolbar_settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\toolbar_settings_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\toolbar_settings_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\video_icon_default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\video_more.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\video_more_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\video_more_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\video_stat_audio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\video_stat_audio_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\video_stat_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\video_stats_volume.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\video_stats_volume_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\video_stats_volume0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\video_stats_volume1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\video_stats_volume2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\video_stats_volume3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\video_stats_volume4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\video_stats_volume5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\video_stats_volume6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\video_stats_volume7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\video_stats_volume8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\video_stats_volume9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\video_stats_volume10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\video_user_disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\video\video_user_enable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\btn_config.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\btn_config_disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\btn_config_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\btn_config_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\login_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\login_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\login_btn_disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\login_btn_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\login_btn_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\login_icon_warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\login_input.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\login_input_disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\login_input_focused.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\login_input_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\login_title_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\login_waiting.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\pop_config.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\pop_input.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\pop_input_disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\pop_input_focus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\pop_input_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\switch_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\switch_off_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\switch_off_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\switch_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\switch_on_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\switch_on_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\titlebar_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\titlebar_close_disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\titlebar_close_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\titlebar_close_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\titlebar_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\titlebar_max.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\titlebar_max_disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\titlebar_max_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\titlebar_max_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\titlebar_mini.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\titlebar_mini_disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\titlebar_mini_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\titlebar_mini_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\titlebar_restore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\titlebar_restore_disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\titlebar_restore_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\login\titlebar_restore_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\combox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\combox_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\combox_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\menu_slider_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\menu_slider_stat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\menu_sliderbtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\menu_sliderbtn_disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\menu_sliderbtn_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\menu_sliderbtn_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\menu_wave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\menu_wave_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\menu_wave_bg_bak.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\menu_wave0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\menu_wave1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\menu_wave2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\menu_wave3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\menu_wave4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\menu_wave5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\menu_wave6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\menu_wave7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\menu_wave8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\menu_wave9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\menu_wave10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\set_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\set_bluebtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\set_bluebtn_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\set_bluebtn_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\set_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\set_btn_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setting\set_btn_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\messagebox\dialog_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\messagebox\dialog_icon_complete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\messagebox\dialog_icon_info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\messagebox\dialog_icon_warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\messagebox\dialog2_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\messagebox\set_bluebtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\messagebox\set_bluebtn_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\messagebox\set_bluebtn_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\messagebox\set_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\messagebox\set_btn_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\messagebox\set_btn_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\windows.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
