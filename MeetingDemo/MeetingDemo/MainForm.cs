@@ -358,7 +358,6 @@ namespace MeetingDemo
             switch (remoteVideoEvent)
             {
                 case RemoteVideoEventClr.CLR_REMOTE_VIDEO_EVENT_PUBLISHE_STARTED:
-                    //fspclr.FspEngineClr.Instance.SetRemoteVideoRender(userId, videoId, (int)videoPanel2.Handle);
                     OnRemoteStartPublishVideo(userId, videoId);
                     break;
 

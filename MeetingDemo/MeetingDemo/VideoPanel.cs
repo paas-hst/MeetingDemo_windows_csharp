@@ -99,8 +99,6 @@ namespace MeetingDemo
             userLabel.Location = new Point(userLabelLeft, infoPanelPaddingTop);
             userLabel.BackColor = Color.Transparent;
             userLabel.Text = "Nobody";
-            userLabel.AutoSize = false;
-            userLabel.MaximumSize = new Size(60,0);
             userLabel.ForeColor = Color.White;
             userLabel.TextAlign = ContentAlignment.MiddleLeft;
 
@@ -142,14 +140,7 @@ namespace MeetingDemo
             menuPictureBox.BackgroundImageLayout = ImageLayout.Zoom;
             menuPictureBox.Click += new System.EventHandler(menuPictureBox_Click);
 
-            //fspclr.FspEngineClr.Instance.AddVideoPreview(0, (int)videoPanel.Handle);
-
-            // Refresh microphone energy and video stats
-            //System.Timers.Timer t = new System.Timers.Timer(500);
-            //t.Elapsed += OnTimer;
-            //t.Enabled = true;
-            //t.AutoReset = true;
-
+            // Start timer
             refreshTimer.Enabled = true;
             refreshTimer.Interval = 500;
             refreshTimer.Tick += OnTimer;
@@ -165,9 +156,6 @@ namespace MeetingDemo
             energyImgList[7] = Properties.Resources.video_stats_volume7;
             energyImgList[8] = Properties.Resources.video_stats_volume8;
             energyImgList[9] = Properties.Resources.video_stats_volume9;
-
-            System.Console.WriteLine("Create Thread: {0}", System.Threading.Thread.CurrentThread.ManagedThreadId);
-
         }
 
         public void Destroy()

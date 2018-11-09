@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.textBox_groupId = new System.Windows.Forms.TextBox();
             this.textBox_userId = new System.Windows.Forms.TextBox();
             this.btn_join = new System.Windows.Forms.Button();
@@ -115,6 +116,7 @@
             this.Controls.Add(this.textBox_userId);
             this.Controls.Add(this.textBox_groupId);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "好视通云通信";

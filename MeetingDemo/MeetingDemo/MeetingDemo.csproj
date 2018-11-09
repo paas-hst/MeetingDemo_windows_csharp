@@ -33,7 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="fsp_sdk_clr_wrapper">
+    <Reference Include="fsp_sdk_clr_wrapper, Version=1.0.6887.15587, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\git-code\fsp-open-sdk\new\fsp_open_sdk\build\windows\Debug\fsp_sdk_clr_wrapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
