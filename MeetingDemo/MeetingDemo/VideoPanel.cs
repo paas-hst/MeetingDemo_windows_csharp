@@ -146,6 +146,7 @@ namespace MeetingDemo
             refreshTimer.Tick += OnTimer;
             refreshTimer.Start();
 
+            // Volume images to simulate volume dynamic changes
             energyImgList[0] = Properties.Resources.video_stats_volume0;
             energyImgList[1] = Properties.Resources.video_stats_volume1;
             energyImgList[2] = Properties.Resources.video_stats_volume2;
@@ -160,9 +161,28 @@ namespace MeetingDemo
 
         public void Destroy()
         {
+            // Close timer
             refreshTimer.Enabled = false;
             refreshTimer.Stop();
             refreshTimer.Dispose();
+
+            // Close auido and video
+            if (isLocal)
+            {
+                if (hasAudio)
+                    SdkManager.Instance().StopPublishLocalMic();
+
+                if (hasVideo)
+                    SdkManager.Instance().StopPublishLocalCam(cameraId, (int)videoPanel.Handle);
+            }
+            else
+            {
+                if (hasAudio)
+                    SdkManager.Instance().CloseRemoteAudio(userId);
+
+                if (hasVideo)
+                    SdkManager.Instance().CloseRemoteVideo(userId, videoId);
+            }
         }
 
         private void OnTimer(object sender, EventArgs e)
@@ -230,6 +250,7 @@ namespace MeetingDemo
         public void StartPublishLocalCam(int cameraId)
         {
             SdkManager.Instance().StartPublishLocalCam(cameraId, (int)videoPanel.Handle);
+            SdkManager.Instance().SetVideoRenderMode((int)videoPanel.Handle, fspclr.RenderModeClr.CLR_RENDERMODE_SCALE_FILL);
 
             userPictureBox.BackgroundImage = Properties.Resources.video_user_enable;
             userLabel.Text = userId;
@@ -286,6 +307,7 @@ namespace MeetingDemo
         public void AddRemoteVideo(String userId, String videoId)
         {
             SdkManager.Instance().OpenRemoteVideo(userId, videoId, (int)videoPanel.Handle);
+            SdkManager.Instance().SetVideoRenderMode((int)videoPanel.Handle, fspclr.RenderModeClr.CLR_RENDERMODE_SCALE_FILL);
 
             if (!hasAudio && !hasVideo)
             {

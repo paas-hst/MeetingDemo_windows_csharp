@@ -58,12 +58,12 @@ namespace MeetingDemo
 
         private void mainForm_Closed(object sender, EventArgs e)
         {
-            System.Console.WriteLine("Close Thread: {0}", System.Threading.Thread.CurrentThread.ManagedThreadId);
-
             foreach (VideoPanel panel in videoPanels)
             {
                 panel.Destroy();
             }
+
+            SdkManager.Instance().LeaveGroup();
 
             SdkManager.Instance().Destroy();
             SdkManager.Instance().mainForm = null;

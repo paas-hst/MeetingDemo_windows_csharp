@@ -110,6 +110,11 @@ namespace MeetingDemo
             return FspEngineClr.Instance.JoinGroup(token, groupId, userId);
         }
 
+        public ErrCodeClr LeaveGroup()
+        {
+            return FspEngineClr.Instance.LeaveGroup();
+        }
+
         public void StartPublishLocalCam(int cameraId, int renderWnd)
         {
             FspEngineClr.Instance.AddVideoPreview(cameraId, renderWnd);
