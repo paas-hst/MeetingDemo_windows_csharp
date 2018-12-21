@@ -36,9 +36,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="fsp_sdk_clr_wrapper, Version=1.0.6906.22972, Culture=neutral, processorArchitecture=x86">
+    <Reference Include="fsp_sdk_clr_wrapper, Version=1.0.6929.22715, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\fsp_sdk_clr_wrapper.dll</HintPath>
+      <HintPath>bin\Release\fsp_sdk_clr_wrapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
