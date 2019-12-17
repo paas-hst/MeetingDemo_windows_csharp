@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DF1F7E0D-CC1C-4914-B9E9-654E54BA1A1C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>meetingdemo_csharp</RootNamespace>
+    <AssemblyName>meetingdemo_csharp</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="fsp_sdk_clr_wrapper, Version=1.0.7282.26126, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\output\sdk\windows_csharp\fsp_sdk_clr_wrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppConfigForm.Designer.cs">
+      <DependentUpon>AppConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppSettingForm.Designer.cs">
+      <DependentUpon>AppSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonForm.Designer.cs">
+      <DependentUpon>CommonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigParser.cs" />
+    <Compile Include="FormTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTest.Designer.cs">
+      <DependentUpon>FormTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FullTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FullTabControl.Designer.cs">
+      <DependentUpon>FullTabControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OnlineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OnlineForm.Designer.cs">
+      <DependentUpon>OnlineForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingForm.Designer.cs">
+      <DependentUpon>SettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SdkManager.cs" />
+    <Compile Include="TransparentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransparentForm.Designer.cs">
+      <DependentUpon>TransparentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransparentTextForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransparentTextForm.Designer.cs">
+      <DependentUpon>TransparentTextForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VideoPanel.cs" />
+    <Compile Include="VideoPanelMgr.cs" />
+    <EmbeddedResource Include="AppConfigForm.resx">
+      <DependentUpon>AppConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppSettingForm.resx">
+      <DependentUpon>AppSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonForm.resx">
+      <DependentUpon>CommonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OnlineForm.resx">
+      <DependentUpon>OnlineForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingForm.resx">
+      <DependentUpon>SettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="TransparentForm.resx">
+      <DependentUpon>TransparentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransparentTextForm.resx">
+      <DependentUpon>TransparentTextForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cam_btn_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cam_btn_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invite_btn_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invite_btn_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\max_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mic_btn_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mic_btn_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\min_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting_btn_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting_btn_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\speaker_btn_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\speaker_btn_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vnc_btn_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vnc_btn_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_more.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_more_hot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_more_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_stat_audio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_stat_audio_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_stat_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_stats_volume.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_stats_volume_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_stats_volume0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_stats_volume1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_stats_volume2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_stats_volume3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_stats_volume4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_stats_volume5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_stats_volume6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_stats_volume7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_stats_volume8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_stats_volume9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_stats_volume10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_user_disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_user_enable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\radio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\radio_sel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkbox_sel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tab_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\app_setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_label.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_name_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_info_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video_menu_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cam_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cam_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cam_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cam_select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invite_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invite_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invite_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mic_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mic_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mic_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mics_select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\record_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\record_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\record_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\share_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\share_select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spk_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spk_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spk_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spk_select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\share_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\share_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cam_disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cam_enable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mic_disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mic_enable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\share_disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\share_enable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\restore_white.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>@echo off
+echo -----------------------------
+
+set PRO_ROOT=$(ProjectDir)..\..\..
+
+rd /s /q %25PRO_ROOT%25\output\demo\windows_csharp
+md %25PRO_ROOT%25\output\demo\windows_csharp
+
+copy /Y $(TargetPath) %25PRO_ROOT%25\output\demo\windows_csharp\
+copy /Y $(ProjectDir)appinfo.xml %25PRO_ROOT%25\output\demo\windows_csharp\
+copy /Y %25PRO_ROOT%25\output\sdk\windows_csharp\*.dll %25PRO_ROOT%25\output\demo\windows_csharp\</PostBuildEvent>
+  </PropertyGroup>
+</Project>
