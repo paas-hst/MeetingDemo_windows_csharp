@@ -181,8 +181,6 @@ namespace meetingdemo_csharp
 
         private void OnTimer(object sender, EventArgs e)
         {
-            System.Console.WriteLine("OnTimer Thread: {0}", System.Threading.Thread.CurrentThread.ManagedThreadId);
-
             if (!refreshTimer.Enabled)
                 return;
 

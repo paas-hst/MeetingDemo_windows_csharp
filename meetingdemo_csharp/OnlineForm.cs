@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using fspclr;
 
@@ -252,21 +249,23 @@ namespace meetingdemo_csharp
             String inviteMsg = String.Format("{0} 邀请您加入分组 {1}，是否同意？", inviterUserId, groupId);
 
             if (MessageBox.Show(inviteMsg, "邀请", MessageBoxButtons.YesNo) != DialogResult.Yes)
-                return;
-
-            if (SdkManager.Instance().MainForm != null)
             {
-                if (SdkManager.Instance().GroupId != groupId)
-                {
-                    SdkManager.Instance().MainForm.CloseMainForm();
-
-                    this.Show();
-
-                    curGroupId = groupId;
-                }
+                SdkManager.Instance().RejectInivte(inviterUserId, inviteId);
             }
-   
-            SdkManager.Instance().JoinGroup(groupId);
+            else
+            {
+                SdkManager.Instance().AcceptInivte(inviterUserId, inviteId);
+                if (SdkManager.Instance().MainForm != null)
+                {
+                    if (SdkManager.Instance().GroupId != groupId)
+                    {
+                        SdkManager.Instance().MainForm.CloseMainForm();
+                        this.Show();
+                        curGroupId = groupId;
+                    }
+                }
+                SdkManager.Instance().JoinGroup(groupId);
+            }
         }
 
         private void group_textbox_Leave(object sender, EventArgs e)

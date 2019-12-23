@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.main_right_panel = new System.Windows.Forms.Panel();
             this.users_datagridview = new System.Windows.Forms.DataGridView();
             this.msg_textbox = new System.Windows.Forms.RichTextBox();
@@ -76,46 +76,51 @@
             // 
             // users_datagridview
             // 
+            this.users_datagridview.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.users_datagridview.AllowUserToAddRows = false;
             this.users_datagridview.AllowUserToDeleteRows = false;
             this.users_datagridview.AllowUserToResizeColumns = false;
             this.users_datagridview.AllowUserToResizeRows = false;
             this.users_datagridview.BackgroundColor = System.Drawing.Color.White;
             this.users_datagridview.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.users_datagridview.CausesValidation = false;
             this.users_datagridview.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.users_datagridview.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.users_datagridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.users_datagridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.users_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.users_datagridview.ColumnHeadersVisible = false;
-            this.users_datagridview.Enabled = false;
+            this.users_datagridview.Cursor = System.Windows.Forms.Cursors.Default;
             this.users_datagridview.Location = new System.Drawing.Point(4, 4);
             this.users_datagridview.MultiSelect = false;
             this.users_datagridview.Name = "users_datagridview";
+            this.users_datagridview.ReadOnly = true;
             this.users_datagridview.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.users_datagridview.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.users_datagridview.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.users_datagridview.RowHeadersVisible = false;
             this.users_datagridview.RowTemplate.Height = 23;
             this.users_datagridview.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.users_datagridview.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.users_datagridview.ShowCellErrors = false;
             this.users_datagridview.ShowCellToolTips = false;
             this.users_datagridview.ShowEditingIcon = false;
             this.users_datagridview.ShowRowErrors = false;
             this.users_datagridview.Size = new System.Drawing.Size(292, 242);
             this.users_datagridview.TabIndex = 9;
+            this.users_datagridview.TabStop = false;
             // 
             // msg_textbox
             // 

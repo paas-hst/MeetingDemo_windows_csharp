@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using fspclr;
 
@@ -147,8 +144,11 @@ namespace meetingdemo_csharp
 
         private void OnFspUserStateChange(UserInfoClr userInfo)
         {
-            UserStateChangeCallback cb = new UserStateChangeCallback(OnlineForm.OnUserStateChange);
-            OnlineForm.Invoke(cb, new object[] { userInfo });
+            if (OnlineForm != null)
+            {
+                UserStateChangeCallback cb = new UserStateChangeCallback(OnlineForm.OnUserStateChange);
+                OnlineForm.Invoke(cb, new object[] { userInfo });
+            }
         }
 
         private void OnFspInviteCome(String inviterUserId, int inviteId, String groupId, String msg)
@@ -156,9 +156,8 @@ namespace meetingdemo_csharp
             if (OnlineForm != null)
             {
                 InviteComeCallback cb = new InviteComeCallback(OnlineForm.OnInviteCome);
-                OnlineForm.Invoke(cb, new object[] { inviterUserId, inviteId, groupId, msg });
+                OnlineForm.BeginInvoke(cb, new object[] { inviterUserId, inviteId, groupId, msg });
             }
-            //MessageBox.Show(String.Format("OnFspInviteCome: {0} {1} {2} {3}", inviterUserId,inviteId, groupId, msg));
         }
 
         private void OnFspInviteAccepted(String remoteUserId, int inviteId)
