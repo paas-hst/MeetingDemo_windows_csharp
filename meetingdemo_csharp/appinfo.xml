@@ -17,4 +17,5 @@
   </ServerAddr>
   <!--User-defined access service address-->
   <UserServerAddr>http://access.paas.haoshitong.com/server/address</UserServerAddr>
+  <ForceLogin>true</ForceLogin>
 </Root>

@@ -50,10 +50,6 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="fsp_sdk_clr_wrapper, Version=1.0.7282.26126, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\output\sdk\windows_csharp\fsp_sdk_clr_wrapper.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -448,6 +444,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\restore_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\wrappers\win32clr\fsp_sdk_clr_wrapper\fsp_sdk_clr_wrapper.vcxproj">
+      <Project>{2c6fa167-3a08-4c02-9e5c-4f98d71146a9}</Project>
+      <Name>fsp_sdk_clr_wrapper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

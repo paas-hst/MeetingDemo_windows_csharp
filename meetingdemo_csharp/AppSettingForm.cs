@@ -68,6 +68,17 @@ namespace meetingdemo_csharp
                 this.server_addr_textbox.Enabled = false;
                 this.server_addr_textbox.Text = this.appConfig.serverAddr;
             }
+
+            if (this.appConfig.forceLogin == "true")
+            {
+                this.force_login_yes_radio.Checked = true;
+                this.force_login_no_radio.Checked = false;
+            }
+            else
+            {
+                this.force_login_yes_radio.Checked = false;
+                this.force_login_no_radio.Checked = true;
+            }
         }
 
         private void AppSettingForm_Load(object sender, EventArgs e)
@@ -103,6 +114,19 @@ namespace meetingdemo_csharp
             else
             {
                 this.appConfig.serverUserDefine = "true";
+            }
+            UpdateSettingUI();
+        }
+
+        private void OnForceLoginChanged()
+        {
+            if (this.force_login_yes_radio.Checked)
+            {
+                this.appConfig.forceLogin = "true";
+            }
+            else
+            {
+                this.appConfig.forceLogin = "false";
             }
             UpdateSettingUI();
         }
@@ -149,6 +173,16 @@ namespace meetingdemo_csharp
             {
                 this.appConfig.userServerAddr = ((TextBox)sender).Text;
             }
+        }
+
+        private void force_login_yes_radio_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void force_login_no_radio_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

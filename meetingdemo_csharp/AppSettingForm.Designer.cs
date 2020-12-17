@@ -44,8 +44,13 @@
             this.app_setting_ok_btn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.force_login_no_radio = new System.Windows.Forms.RadioButton();
+            this.force_login_yes_radio = new System.Windows.Forms.RadioButton();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // default_app_radio
@@ -86,7 +91,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(47, 145);
+            this.label2.Location = new System.Drawing.Point(47, 138);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 17);
             this.label2.TabIndex = 5;
@@ -108,7 +113,7 @@
             // app_secret_textbox
             // 
             this.app_secret_textbox.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.app_secret_textbox.Location = new System.Drawing.Point(140, 140);
+            this.app_secret_textbox.Location = new System.Drawing.Point(140, 133);
             this.app_secret_textbox.Name = "app_secret_textbox";
             this.app_secret_textbox.Size = new System.Drawing.Size(360, 27);
             this.app_secret_textbox.TabIndex = 7;
@@ -128,7 +133,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(27, 214);
+            this.label4.Location = new System.Drawing.Point(27, 194);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 17);
             this.label4.TabIndex = 11;
@@ -163,7 +168,7 @@
             // server_addr_textbox
             // 
             this.server_addr_textbox.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.server_addr_textbox.Location = new System.Drawing.Point(140, 249);
+            this.server_addr_textbox.Location = new System.Drawing.Point(140, 229);
             this.server_addr_textbox.Name = "server_addr_textbox";
             this.server_addr_textbox.Size = new System.Drawing.Size(360, 27);
             this.server_addr_textbox.TabIndex = 13;
@@ -173,7 +178,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(22, 252);
+            this.label5.Location = new System.Drawing.Point(22, 232);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 17);
             this.label5.TabIndex = 12;
@@ -186,7 +191,7 @@
             this.app_setting_cancel_btn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.app_setting_cancel_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.app_setting_cancel_btn.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.app_setting_cancel_btn.Location = new System.Drawing.Point(190, 300);
+            this.app_setting_cancel_btn.Location = new System.Drawing.Point(190, 323);
             this.app_setting_cancel_btn.Name = "app_setting_cancel_btn";
             this.app_setting_cancel_btn.Size = new System.Drawing.Size(65, 32);
             this.app_setting_cancel_btn.TabIndex = 14;
@@ -200,7 +205,7 @@
             this.app_setting_ok_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.app_setting_ok_btn.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.app_setting_ok_btn.ForeColor = System.Drawing.Color.White;
-            this.app_setting_ok_btn.Location = new System.Drawing.Point(285, 300);
+            this.app_setting_ok_btn.Location = new System.Drawing.Point(285, 323);
             this.app_setting_ok_btn.Name = "app_setting_ok_btn";
             this.app_setting_ok_btn.Size = new System.Drawing.Size(65, 32);
             this.app_setting_ok_btn.TabIndex = 15;
@@ -222,17 +227,64 @@
             // 
             this.panel2.Controls.Add(this.user_server_radio);
             this.panel2.Controls.Add(this.default_server_radio);
-            this.panel2.Location = new System.Drawing.Point(140, 206);
+            this.panel2.Location = new System.Drawing.Point(140, 186);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(360, 33);
             this.panel2.TabIndex = 17;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(64, 280);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 17);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "强制登录";
+            // 
+            // force_login_no_radio
+            // 
+            this.force_login_no_radio.AutoSize = true;
+            this.force_login_no_radio.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.force_login_no_radio.Location = new System.Drawing.Point(67, 6);
+            this.force_login_no_radio.Name = "force_login_no_radio";
+            this.force_login_no_radio.Size = new System.Drawing.Size(38, 21);
+            this.force_login_no_radio.TabIndex = 10;
+            this.force_login_no_radio.TabStop = true;
+            this.force_login_no_radio.Text = "否";
+            this.force_login_no_radio.UseVisualStyleBackColor = true;
+            this.force_login_no_radio.CheckedChanged += new System.EventHandler(this.force_login_no_radio_CheckedChanged);
+            // 
+            // force_login_yes_radio
+            // 
+            this.force_login_yes_radio.AutoSize = true;
+            this.force_login_yes_radio.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.force_login_yes_radio.Location = new System.Drawing.Point(3, 6);
+            this.force_login_yes_radio.Name = "force_login_yes_radio";
+            this.force_login_yes_radio.Size = new System.Drawing.Size(38, 21);
+            this.force_login_yes_radio.TabIndex = 9;
+            this.force_login_yes_radio.TabStop = true;
+            this.force_login_yes_radio.Text = "是";
+            this.force_login_yes_radio.UseVisualStyleBackColor = true;
+            this.force_login_yes_radio.CheckedChanged += new System.EventHandler(this.force_login_yes_radio_CheckedChanged);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.force_login_no_radio);
+            this.panel3.Controls.Add(this.force_login_yes_radio);
+            this.panel3.Location = new System.Drawing.Point(140, 272);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(360, 33);
+            this.panel3.TabIndex = 19;
             // 
             // AppSettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(540, 349);
+            this.ClientSize = new System.Drawing.Size(540, 370);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.app_setting_ok_btn);
@@ -261,10 +313,14 @@
             this.Controls.SetChildIndex(this.app_setting_ok_btn, 0);
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.panel2, 0);
+            this.Controls.SetChildIndex(this.panel3, 0);
+            this.Controls.SetChildIndex(this.label3, 0);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,5 +344,9 @@
         private System.Windows.Forms.Button app_setting_ok_btn;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RadioButton force_login_no_radio;
+        private System.Windows.Forms.RadioButton force_login_yes_radio;
+        private System.Windows.Forms.Panel panel3;
     }
 }

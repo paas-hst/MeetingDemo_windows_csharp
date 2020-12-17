@@ -56,9 +56,15 @@ namespace meetingdemo_csharp
                 return;
             }
 
-            String appId = (ConfigParser.appConfig.appUserDefine == "true") ? ConfigParser.appConfig.userAppId : ConfigParser.appConfig.appId;
-            String appSecret = (ConfigParser.appConfig.appUserDefine == "true") ? ConfigParser.appConfig.userAppSecret : ConfigParser.appConfig.appSecret;
-            String serverAddr = (ConfigParser.appConfig.serverUserDefine == "true") ? ConfigParser.appConfig.userServerAddr : ConfigParser.appConfig.serverAddr;
+            String appId = (ConfigParser.appConfig.appUserDefine == "true") 
+                ? ConfigParser.appConfig.userAppId 
+                : ConfigParser.appConfig.appId;
+            String appSecret = (ConfigParser.appConfig.appUserDefine == "true") 
+                ? ConfigParser.appConfig.userAppSecret 
+                : ConfigParser.appConfig.appSecret;
+            String serverAddr = (ConfigParser.appConfig.serverUserDefine == "true") 
+                ? ConfigParser.appConfig.userServerAddr 
+                : ConfigParser.appConfig.serverAddr;
 
             if (!SdkManager.Instance().Init(appId, appSecret, serverAddr))
             {

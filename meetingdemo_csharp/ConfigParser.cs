@@ -17,6 +17,7 @@ namespace meetingdemo_csharp
         public String serverUserDefine;
         public String serverAddr;
         public String userServerAddr;
+        public String forceLogin;
     };
 
     static class ConfigParser
@@ -63,6 +64,10 @@ namespace meetingdemo_csharp
                 else if (node.Name == "UserServerAddr")
                 {
                     appConfig.userServerAddr = node.InnerText;
+                }
+                else if (node.Name == "ForceLogin")
+                {
+                    appConfig.forceLogin = node.InnerText;
                 }
             }
         }
@@ -115,6 +120,11 @@ namespace meetingdemo_csharp
             XmlElement userServerAddrNode = xml.CreateElement("UserServerAddr");
             userServerAddrNode.InnerText = appConfig.userServerAddr;
             root.AppendChild(userServerAddrNode);
+
+            root.AppendChild(xml.CreateComment("Whether force login"));
+            XmlElement forceLoginNode = xml.CreateElement("ForceLogin");
+            forceLoginNode.InnerText = appConfig.forceLogin;
+            root.AppendChild(forceLoginNode);
 
             xml.AppendChild(root);
 

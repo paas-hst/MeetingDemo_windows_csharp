@@ -78,6 +78,14 @@ namespace meetingdemo_csharp
                 CommonEventCallback cb = new CommonEventCallback(OnlineForm.JoinGroupResultHandler);
                 OnlineForm.Invoke(cb, new object[] { commonEvent, errCode });
             }
+            else if (commonEvent == CommonEventClr.CLR_COMMONEVENT_CONNECT_LOST)
+            {
+                if (errCode == ErrCodeClr.CLR_ERR_USERID_CONFLICT)
+                {
+                    MessageBox.Show("用户强制登录，连接断开！", "错误");
+                    System.Environment.Exit(0);
+                }
+            }
             else
             {
                 ; // TODO:
@@ -91,7 +99,7 @@ namespace meetingdemo_csharp
         }
 
         // 远端广播音频事件处理
-        private void OnFspRemoteAudioEvent(String userId, RemoteAudioEventClr remoteAudioEvent)
+        private void OnFspRemoteAudioEvent(String userId, String audioId, RemoteAudioEventClr remoteAudioEvent)
         {
             if (MainForm != null)
             {
@@ -190,7 +198,7 @@ namespace meetingdemo_csharp
 
         public bool Init(String appId, String appSecret, String serverAddr)
         {
-            ErrCodeClr result = FspEngineClr.Instance.Init(appId, "./", serverAddr);
+            ErrCodeClr result = FspEngineClr.Instance.Init(appId, "./", serverAddr, "");
             if (result != ErrCodeClr.CLR_ERR_OK)
                 return false;
 
@@ -230,7 +238,8 @@ namespace meetingdemo_csharp
             // 生成Token，考虑到账号安全性，建议在服务器生成Token!!!
             String token = TokenGenerator.GenerateToken(appId, appSecret, "", userId);
             
-            return (ErrCodeClr.CLR_ERR_OK == FspEngineClr.Instance.Login(token, userId));
+            return (ErrCodeClr.CLR_ERR_OK == FspEngineClr.Instance.Login(token, userId, 
+                (ConfigParser.appConfig.forceLogin == "true"), ""));
         }
 
         public void Logout()
@@ -280,22 +289,22 @@ namespace meetingdemo_csharp
 
         public void StartPublishLocalMic()
         {
-            FspEngineClr.Instance.StartPublishAudio();
+            FspEngineClr.Instance.StartPublishAudio(FspEngineClr.RESERVED_AUDIOID_MICROPHONE);
         }
 
         public void StopPublishLocalMic()
         {
-            FspEngineClr.Instance.StopPublishAudio();
+            FspEngineClr.Instance.StopPublishAudio(FspEngineClr.RESERVED_AUDIOID_MICROPHONE);
         }
 
         public void OpenRemoteAudio(String userId)
         {
-            FspEngineClr.Instance.MuteRemoteAudio(userId, false);
+            FspEngineClr.Instance.MuteRemoteAudio(userId, FspEngineClr.RESERVED_AUDIOID_MICROPHONE, false);
         }
 
         public void CloseRemoteAudio(String userId)
         {
-            FspEngineClr.Instance.MuteRemoteAudio(userId, true);
+            FspEngineClr.Instance.MuteRemoteAudio(userId, FspEngineClr.RESERVED_AUDIOID_MICROPHONE, true);
         }
 
         public int GetLocalMicEnergy()
@@ -310,7 +319,7 @@ namespace meetingdemo_csharp
 
         public int GetRemoteMicEnergy(String userId)
         {
-            return FspEngineClr.Instance.GetRemoteAudioEnergy(userId);
+            return FspEngineClr.Instance.GetRemoteAudioEnergy(userId, FspEngineClr.RESERVED_AUDIOID_MICROPHONE);
         }
 
         public VideoStatsInfoClr GetVideoStats(String userId, String videoId)
